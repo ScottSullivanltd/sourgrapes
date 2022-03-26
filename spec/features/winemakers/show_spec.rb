@@ -6,8 +6,10 @@ require 'rails_helper'
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        winemaker2 = Winemaker.create!(name: "Wet Creek", region: "Sonoma", public_tasting: true, vineyard_acreage: 120)
 
-       # visit "/winemakers/#{@winemaker.id}"
-       visit "/winemakers/#{@winemaker.id}"
+       visit "/winemakers/#{winemaker1.id}"
+
+       expect(page).to have_content(winemaker1.name)
+       expect(page).to_not have_content(winemaker2.name)
      end
    end
  end

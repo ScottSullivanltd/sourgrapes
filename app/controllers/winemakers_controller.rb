@@ -4,5 +4,6 @@ class WinemakersController < ApplicationController
   end
 
   def show
+    @winemaker = Winemaker.find(params[:id])
   end
 end
