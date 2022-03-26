@@ -1,5 +1,6 @@
 class Winemaker < ApplicationRecord
-  validates :name, presence: true
-  validates :region, presence: true
-  validates :vineyard_acreage, presence: true
+  validates_presence_of :name
+  validates_presence_of :region
+  validates :public_tasting, inclusion: [true, false]
+  validates_presence_of :vineyard_acreage
 end
