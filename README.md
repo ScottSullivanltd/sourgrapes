@@ -7,4 +7,4 @@
 * Schema Diagram:
 
 
-Screen Shot 2022-03-25 at 9.49.56 AM
+![Screen Shot 2022-03-25 at 9 49 56 AM](https://user-images.githubusercontent.com/96926479/160221349-92d0e026-35f3-4d97-847c-c76c8a735d37.png)
