@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2022_03_26_194845) do
 
   create_table "wines", force: :cascade do |t|
     t.string "name"
-    t.string "type"
-    t.date "vintage"
+    t.string "blend"
+    t.string "vintage"
     t.integer "barrels_produced"
     t.boolean "signature_label"
     t.datetime "created_at", null: false

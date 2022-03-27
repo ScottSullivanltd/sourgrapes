@@ -1,0 +1,8 @@
+<h1>Wines</h1>
+<% @wines.each do |wine| %>
+  <h3><%= wine.name %></h3>
+  <p>Blend: <%= wine.blend %></p>
+  <p>Vintage: <%= wine.vintage %></p>
+  <p>Barrels Produced: <%= wine.barrels_produced %></p>
+  <p>Signature Label: <%= wine.signature_label %></p>
+<% end %>
