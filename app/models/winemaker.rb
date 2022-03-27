@@ -14,4 +14,8 @@ class Winemaker < ApplicationRecord
     self.created_at.strftime("%B %d %Y %I:%M %P %Z")
   end
 
+  def wine_count
+    wines.all.count
+  end
+
 end

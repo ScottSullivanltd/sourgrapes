@@ -1,7 +1,7 @@
 require 'rails_helper'
 
- RSpec.describe 'User Story 2' do
-   describe 'parent show page' do
+ RSpec.describe 'Paarent Show page' do
+   describe 'User story 2' do
      it "can see a winemaker with all its attributes" do
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        winemaker2 = Winemaker.create!(name: "Wet Creek", region: "Sonoma", public_tasting: true, vineyard_acreage: 120)
@@ -16,6 +16,19 @@ require 'rails_helper'
        expect(page).to_not have_content(winemaker2.vineyard_acreage)
        expect(page).to have_content(winemaker1.public_tasting)
        expect(page).to_not have_content(winemaker2.public_tasting)
+     end
+   end
+
+   describe 'User story 7' do
+     it "can see a count of the number of wines associated with a winemaker" do
+       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
+       wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
+       wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
+       wine2 = winemaker1.wines.create!(name: "Pinotrest", blend: "Pino Noir", vintage: "2010", barrels_produced: 104, signature_label: false)
+
+       visit "/winemakers/#{winemaker1.id}"
+
+       expect(page).to have_content("Total number of Mondovete wines: 3")
      end
    end
  end
