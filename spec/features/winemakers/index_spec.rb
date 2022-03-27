@@ -1,7 +1,7 @@
 require 'rails_helper'
 
- RSpec.describe 'User Story 1' do
-   describe 'winemakers index page', type: :feature do
+ RSpec.describe 'winemaker features index' do
+   describe 'User story 1', type: :feature do
      it "can see all winemaker names" do
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        winemaker2 = Winemaker.create!(name: "Wet Creek", region: "Sonoma", public_tasting: true, vineyard_acreage: 120)
