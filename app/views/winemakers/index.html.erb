@@ -4,3 +4,18 @@
   <p>Region: <%= winemaker.region %></p>
   <p>Vineyard Acreage: <%= winemaker.vineyard_acreage %></p>
 <% end %>
+
+<table>
+  <tr>
+    <th>Winemaker Name</th>
+    <th>Date Created</th>
+  </tr>
+  <% @winemakers.most_recent.each_with_index do |winemaker, index| %>
+    <div id="wine-<%= index %>">
+      <tr>
+        <td><%= winemaker.name %></td>
+        <td><%= winemaker.formatted_date %></td>
+      </tr>
+    </div>
+  <% end %>
+</table>
