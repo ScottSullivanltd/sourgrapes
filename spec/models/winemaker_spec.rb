@@ -15,6 +15,15 @@ RSpec.describe Winemaker, type: :model do
   end
 
   describe "instance methods" do
+    describe '#most_recent' do
+      it "returns the most recent entry" do
+        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
+        winemaker2 = Winemaker.create!(name: "Wet Creek", region: "Sonoma", public_tasting: true, vineyard_acreage: 120)
+        
+        expect(winemaker2.created_at).to be > (winemaker1.created_at)
+      end
+    end
+
     describe "#formatted_date" do
       it "returns #created_at in a readable format" do
         winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
