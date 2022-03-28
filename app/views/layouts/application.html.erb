@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Winemaker</title>
+    <title>TaskManager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    <p><a href="/wines">All Wines</a></p>
+    <p><a href="/winemakers">All Winemakers</a></p>
     <%= yield %>
   </body>
 </html>
