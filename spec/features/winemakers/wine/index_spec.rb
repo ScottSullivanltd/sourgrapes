@@ -36,4 +36,18 @@ require 'rails_helper'
        expect(current_path).to eq("/wines")
      end
    end
+
+   describe 'User Story 9, Winemaker Index Link', type: :feature do
+     it "links to the Winemaker Index page" do
+       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
+       wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
+       wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
+
+       visit "/winemakers/#{winemaker1.id}/wines"
+
+       click_on "All Winemakers"
+
+       expect(current_path).to eq("/winemakers")
+     end
+   end
  end
