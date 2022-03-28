@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Wine, type: :model do
+RSpec.describe Wine do
 
-  describe 'relationships' do
+  describe 'relationships', type: :model do
     it {should belong_to :winemaker}
   end
 
-  describe "validations" do
+  describe 'validations', type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :blend }
     it { should validate_presence_of :vintage }

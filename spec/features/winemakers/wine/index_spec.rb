@@ -1,15 +1,15 @@
 require 'rails_helper'
 
- RSpec.describe 'winemaker wine features index' do
+ RSpec.describe 'Winemaker Wine Index page' do
 
-   describe 'User story 5', type: :feature do
+   describe 'User Story 5, Winemaker Wine Index', type: :feature do
      it "can see all wines for the winemaker" do
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
        wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
 
        visit "/winemakers/#{winemaker1.id}/wines"
-       
+
        expect(page).to have_content(wine1.name)
        expect(page).to have_content(wine1.blend)
        expect(page).to have_content(wine1.vintage)
@@ -20,6 +20,20 @@ require 'rails_helper'
        expect(page).to have_content(wine2.vintage)
        expect(page).to have_content(wine2.barrels_produced)
        expect(page).to have_content(wine2.signature_label)
+     end
+   end
+
+   describe 'User Story 8, Wine Index Link', type: :feature do
+     it "links to the Wine Index page" do
+       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
+       wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
+       wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
+
+       visit "/winemakers/#{winemaker1.id}/wines"
+
+       click_on "All Wines"
+
+       expect(current_path).to eq("/wines")
      end
    end
  end

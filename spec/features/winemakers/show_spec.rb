@@ -1,7 +1,8 @@
 require 'rails_helper'
 
- RSpec.describe 'Paarent Show page' do
-   describe 'User story 2' do
+ RSpec.describe 'Winemaker Show page' do
+
+   describe 'User Story 2, Winemaker Show', type: :feature do
      it "can see a winemaker with all its attributes" do
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        winemaker2 = Winemaker.create!(name: "Wet Creek", region: "Sonoma", public_tasting: true, vineyard_acreage: 120)
@@ -19,7 +20,7 @@ require 'rails_helper'
      end
    end
 
-   describe 'User story 7' do
+   describe 'User Story 7, Winemaker Wine Count', type: :feature do
      it "can see a count of the number of wines associated with a winemaker" do
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
@@ -29,6 +30,19 @@ require 'rails_helper'
        visit "/winemakers/#{winemaker1.id}"
 
        expect(page).to have_content("Total number of Mondovete wines: 3")
+     end
+   end
+
+   describe 'User Story 8, Wine Index Link', type: :feature do
+     it "links to the Wine Index page" do
+       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
+       winemaker2 = Winemaker.create!(name: "Wet Creek", region: "Sonoma", public_tasting: true, vineyard_acreage: 120)
+
+       visit "/winemakers/#{winemaker1.id}"
+
+       click_on "All Wines"
+
+       expect(current_path).to eq("/wines")
      end
    end
  end
