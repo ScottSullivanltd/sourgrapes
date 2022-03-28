@@ -11,11 +11,11 @@ class Winemaker < ApplicationRecord
   end
 
   def formatted_date
-    self.created_at.strftime("%B %d %Y %I:%M %P %Z")
+    created_at.strftime("%B %d %Y %I:%M %P %Z")
   end
 
   def wine_count
-    wines.all.count
+    wines.count
   end
 
 end

@@ -9,8 +9,8 @@ RSpec.describe Winemaker do
   describe 'validations', type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :region }
-    it { should validate_inclusion_of(:public_tasting).
-      in_array([true, false])}
+    it { should allow_value(true).for(:public_tasting)}
+    it { should allow_value(false).for(:public_tasting)}
     it { should validate_presence_of :vineyard_acreage }
   end
 
@@ -19,9 +19,10 @@ RSpec.describe Winemaker do
     it "returns the #most_recent entry" do
       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
       winemaker2 = Winemaker.create!(name: "Wet Creek", region: "Sonoma", public_tasting: true, vineyard_acreage: 120)
-      # @winemakers.most_recent
-      # expect(@winemakers.most_recent).to eq(winemaker2)
-      expect(winemaker2.created_at).to be > (winemaker1.created_at)
+
+      expected = [winemaker2, winemaker1]
+
+      expect(Winemaker.most_recent).to eq(expected)
     end
 
     it "returns created_at as a #formatted_date" do
