@@ -1,0 +1,17 @@
+<br>
+<p><h2><%= @winemaker.name %></h2></p>
+<p>Region: <%= @winemaker.region %></p>
+<p>Vineyard Acreage: <%= @winemaker.vineyard_acreage %></p>
+<p>Public Tastings: <%= @winemaker.public_tasting %></p>
+
+<%= form_with url: "/winemakers/#{@winemaker.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name, 'Name:' %>
+     <%= form.text_field :name %></p>
+  <p><%= form.label :region, 'Region:' %>
+     <%= form.text_field :region %></p>
+  <p><%= form.label :vineyard_acreage, 'Vineyard Acreage:' %>
+     <%= form.text_field :vineyard_acreage %></p>
+  <p><%= form.label :public_tasting, 'Public Tasting:' %>
+     <%= form.text_field :public_tasting %></p>
+  <%= form.submit 'Update Winemaker' %>
+<% end %>
