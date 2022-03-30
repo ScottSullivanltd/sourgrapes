@@ -6,17 +6,17 @@ class WinesController < ApplicationController
   end
 
   def show
-    wine = Wine.find(params[:id])
+    @wine = Wine.find(params[:id])
   end
 
   def edit
-    wine = Wine.find(params[:id])
+    @wine = Wine.find(params[:id])
   end
 
   def update
     wine = Wine.find(params[:id])
     wine.update(wine_params)
-    redirect_to "/wines/#{@wine.id}"
+    redirect_to "/wines/#{wine.id}"
   end
 
   private

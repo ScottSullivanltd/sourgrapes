@@ -18,24 +18,8 @@ class WinemakerWinesController < ApplicationController
   end
 
   private
-    def winemaker_params
-      {
-        name: params[:name],
-        region: params[:region],
-        public_tasting: params[:public_tasting],
-        vineyard_acreage: params[:vineyard_acreage]
-      }
-      params.permit(:name, :region, :public_tasting, :vineyard_acreage)
-    end
 
     def wine_params
-      {
-        name: params[:name],
-        blend: params[:blend],
-        vintage: params[:vintage],
-        barrels_produced: params[:barrels_produced],
-        signature_label: params[:signature_label]
-      }
       params.permit(:name, :blend, :vintage, :barrels_produced, :signature_label)
     end
 

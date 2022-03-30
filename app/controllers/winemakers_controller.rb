@@ -6,27 +6,26 @@ class WinemakersController < ApplicationController
   end
 
   def show
-    winemaker = Winemaker.find(params[:id])
+    @winemaker = Winemaker.find(params[:id])
   end
 
   def new
   end
 
   def create
-    winemaker = Winemaker.find(params[:id])
     winemaker = Winemaker.create(winemaker_params)
     redirect_to "/winemakers"
   end
 
   def edit
-    winemaker = Winemaker.find(params[:id])
+    @winemaker = Winemaker.find(params[:id])
 
   end
 
   def update
     winemaker = Winemaker.find(params[:id])
     winemaker.update(winemaker_params)
-    redirect_to "/winemakers/#{@winemaker.id}"
+    redirect_to "/winemakers/#{winemaker.id}"
   end
 
   private

@@ -7,7 +7,7 @@ require 'rails_helper'
       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
 
       visit "/winemakers/#{winemaker1.id}"
-      click_button("Update #{winemaker1.name}")
+      click_link("Update #{winemaker1.name}")
 
       expect(current_path).to eq("/winemakers/#{winemaker1.id}/edit")
     end
@@ -22,7 +22,7 @@ require 'rails_helper'
       expect(page).to have_content(true)
       expect(page).to have_content(15)
 
-      click_button 'Update Mondovoot'
+      click_link 'Update Mondovoot'
 
       fill_in('Name', with: 'Mondovete')
       fill_in('Region', with: 'Napa Valley')
