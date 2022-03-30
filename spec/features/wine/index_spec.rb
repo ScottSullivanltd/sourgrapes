@@ -50,4 +50,20 @@ require 'rails_helper'
        expect(current_path).to eq("/winemakers")
      end
    end
+
+   describe 'User Story 15, Wine Index only shows records that are true', type: :feature do
+     it "shows only records with boolean column as true" do
+       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
+       wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
+       wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
+       wine3 = winemaker1.wines.create!(name: "Pinotrest", blend: "Pinot Noir", vintage: "2010", barrels_produced: 104, signature_label: false)
+       wine4 = winemaker1.wines.create!(name: "Chambrala", blend: "Chardonnay", vintage: "2018", barrels_produced: 99, signature_label: true)
+
+       visit "/wines"
+save_and_open_page
+       expected = [wine2, wine4]
+
+       expect(Wine.is_true).to eq(expected)
+     end
+   end
  end

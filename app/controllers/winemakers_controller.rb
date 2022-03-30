@@ -1,26 +1,31 @@
 class WinemakersController < ApplicationController
-  before_action :find_winemaker
+  # before_action :find_winemaker
 
   def index
     @winemakers = Winemaker.all
   end
 
   def show
+    winemaker = Winemaker.find(params[:id])
   end
 
   def new
   end
 
   def create
+    winemaker = Winemaker.find(params[:id])
     winemaker = Winemaker.create(winemaker_params)
     redirect_to "/winemakers"
   end
 
   def edit
+    winemaker = Winemaker.find(params[:id])
+
   end
 
   def update
-    @winemaker.update(winemaker_params)
+    winemaker = Winemaker.find(params[:id])
+    winemaker.update(winemaker_params)
     redirect_to "/winemakers/#{@winemaker.id}"
   end
 
@@ -36,7 +41,7 @@ class WinemakersController < ApplicationController
       params.permit(:name, :region, :public_tasting, :vineyard_acreage)
     end
 
-    def find_winemaker
-      @winemaker = Winemaker.find(params[:id])
-    end
+    # def find_winemaker
+    #   @winemaker = Winemaker.find(params[:id])
+    # end
 end

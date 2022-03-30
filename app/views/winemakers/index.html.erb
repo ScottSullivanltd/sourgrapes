@@ -1,7 +1,7 @@
 <br>
 <h1>Winemakers</h1>
 <% @winemakers.each do |winemaker| %>
-  <h3><%= winemaker.name %></h3>
+  <h3><%= link_to winemaker.name, "/winemakers/#{winemaker.id}" %></h3>
   <p>Region: <%= winemaker.region %></p>
   <p>Vineyard Acreage: <%= winemaker.vineyard_acreage %></p>
 <% end %>

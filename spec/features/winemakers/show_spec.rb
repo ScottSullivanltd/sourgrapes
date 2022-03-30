@@ -25,7 +25,7 @@ require 'rails_helper'
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
        wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
-       wine2 = winemaker1.wines.create!(name: "Pinotrest", blend: "Pino Noir", vintage: "2010", barrels_produced: 104, signature_label: false)
+       wine3 = winemaker1.wines.create!(name: "Pinotrest", blend: "Pinot Noir", vintage: "2010", barrels_produced: 104, signature_label: false)
 
        visit "/winemakers/#{winemaker1.id}"
 
@@ -64,7 +64,7 @@ require 'rails_helper'
        winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
        wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
        wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
-       wine3 = winemaker1.wines.create!(name: "Pinotrest", blend: "Pino Noir", vintage: "2010", barrels_produced: 104, signature_label: false)
+       wine3 = winemaker1.wines.create!(name: "Pinotrest", blend: "Pinot Noir", vintage: "2010", barrels_produced: 104, signature_label: false)
 
        visit "/winemakers/#{winemaker1.id}"
 
