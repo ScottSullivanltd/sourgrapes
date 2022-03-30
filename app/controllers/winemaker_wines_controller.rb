@@ -1,5 +1,5 @@
 class WinemakerWinesController < ApplicationController
-  before_action :find_winemaker  #, only: [:create, :update]  #do this if you want to limit this before_action
+  before_action :find_winemaker  #, only: [:create, :update]  #do this if you want to limit the before_action
 
   def index
     @wines = @winemaker.wines

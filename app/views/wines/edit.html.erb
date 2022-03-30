@@ -1,0 +1,21 @@
+<br>
+<p><h2><%= @wine.name %></h2></p>
+<p>Blend: <%= @wine.blend %></p>
+<p>Vintage: <%= @wine.vintage %></p>
+<p>Barrels Produced: <%= @wine.barrels_produced %></p>
+<p>Signature Label: <%= @wine.signature_label %></p>
+<br>
+
+<%= form_with url: "/wines/#{@wine.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name, 'Name:' %>
+     <%= form.text_field :name %></p>
+  <p><%= form.label :blend, 'Blend:' %>
+     <%= form.text_field :blend %></p>
+  <p><%= form.label :vintage, 'Vintage:' %>
+     <%= form.text_field :vintage %></p>
+  <p><%= form.label :barrels_produced, 'Barrels Produced:' %>
+     <%= form.text_field :barrels_produced %></p>
+  <p><%= form.label :signature_label, 'Signature Label:' %>
+     <%= form.text_field :signature_label %></p>
+  <%= form.submit 'Update Wine' %>
+<% end %>

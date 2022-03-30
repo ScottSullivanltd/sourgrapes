@@ -3,6 +3,7 @@
 <p>Region: <%= @winemaker.region %></p>
 <p>Vineyard Acreage: <%= @winemaker.vineyard_acreage %></p>
 <p>Public Tastings: <%= @winemaker.public_tasting %></p>
+<br>
 
 <%= form_with url: "/winemakers/#{@winemaker.id}", method: :patch, local: true do |form| %>
   <p><%= form.label :name, 'Name:' %>

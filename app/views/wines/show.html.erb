@@ -4,3 +4,6 @@
 <p>Vintage: <%= @wine.vintage %></p>
 <p>Barrles Produced: <%= @wine.barrels_produced %></p>
 <p>Signature Label: <%= @wine.signature_label %></p>
+<br>
+
+<p><%= button_to "Update #{@wine.name}", "/wines/#{@wine.id}/edit", method: :get %></p>
