@@ -1,12 +1,25 @@
-<p><a href="/wines">All Wines</a></p>
-<p><a href="/winemakers">All Winemakers</a></p>
-
+<br>
 <h1>Winemakers</h1>
-<% @winemakers.each do |winemaker| %>
-  <h3><%= winemaker.name %></h3>
-  <p>Region: <%= winemaker.region %></p>
-  <p>Vineyard Acreage: <%= winemaker.vineyard_acreage %></p>
-<% end %>
+<table>
+  <tr>
+    <th>Winemaker Name</th>
+    <th>Region</th>
+    <th>Vineyard Acreage</th>
+    <th>Public Tasting</th>
+    <th>Update Winemaker</th>
+  </tr>
+  <% @winemakers.each_with_index do |winemaker, index| %>
+    <div id="winemaker-<%= index %>">
+      <tr>
+        <td><strong><%= link_to winemaker.name, "/winemakers/#{winemaker.id}" %></strong></td>
+        <td><strong><%= winemaker.region %></strong></td>
+        <td><strong><%= winemaker.vineyard_acreage %></strong></td>
+        <td><strong><%= winemaker.public_tasting %></strong></td>
+        <td><strong><%= link_to "Update Winemaker", "/winemakers/#{winemaker.id}/edit" %></strong></td>
+      </tr>
+    </div>
+  <% end %>
+</table>
 
 <table>
   <tr>
@@ -14,7 +27,7 @@
     <th>Date Created</th>
   </tr>
   <% @winemakers.most_recent.each_with_index do |winemaker, index| %>
-    <div id="wine-<%= index %>">
+    <div id="winemaker-<%= index %>">
       <tr>
         <td><%= winemaker.name %></td>
         <td><%= winemaker.formatted_date %></td>
@@ -22,3 +35,6 @@
     </div>
   <% end %>
 </table>
+<br>
+
+<%= link_to "New Winemaker", '/winemakers/new' %>

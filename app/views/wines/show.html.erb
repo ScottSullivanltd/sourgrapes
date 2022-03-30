@@ -1,8 +1,9 @@
-<p><a href="/wines">All Wines</a></p>
-<p><a href="/winemakers">All Winemakers</a></p>
-
+<br>
 <h1><%= @wine.name %></h1>
 <p>Blend: <%= @wine.blend %></p>
 <p>Vintage: <%= @wine.vintage %></p>
 <p>Barrles Produced: <%= @wine.barrels_produced %></p>
 <p>Signature Label: <%= @wine.signature_label %></p>
+<br>
+
+<p><%= button_to "Update #{@wine.name}", "/wines/#{@wine.id}/edit", method: :get %></p>

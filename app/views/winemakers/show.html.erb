@@ -1,11 +1,11 @@
-<p><a href="/wines">All Wines</a></p>
-<p><a href="/winemakers">All Winemakers</a></p>
-
+<br>
+<p><h2><%= @winemaker.name %></h2></p>
 <p>Region: <%= @winemaker.region %></p>
 <p>Vineyard Acreage: <%= @winemaker.vineyard_acreage %></p>
 <p>Public Tastings: <%= @winemaker.public_tasting %></p>
 
 <p><strong>Total number of <%= @winemaker.name %> wines: <%= @winemaker.wine_count %></strong></p>
 
-<!-- <p><h2><a href="/winemakers/:winemaker_id/wines">See Our Wines</a></h2></p> -->
+<p><%= link_to "Update #{@winemaker.name}", "/winemakers/#{@winemaker.id}/edit", method: :get %></p>
+
 <p><h2><%= link_to 'See Our Wines', "/winemakers/#{@winemaker.id}/wines" %></h2></p>
