@@ -1,0 +1,14 @@
+<br>
+<%= form_with url: "/winemakers/#{@winemaker.id}/wines", method: :post, local: true do |form| %>
+  <p><%= form.label :name, 'Name:' %>
+     <%= form.text_field :name %></p>
+  <p><%= form.label :blend, 'Blend:' %>
+     <%= form.text_field :blend %></p>
+  <p><%= form.label :vintage, 'Vintage:' %>
+     <%= form.text_field :vintage %></p>
+  <p><%= form.label :barrels_produced, 'Barrels Produced:' %>
+     <%= form.text_field :barrels_produced %></p>
+  <p><%= form.label :signature_label, 'Signature Label:' %>
+     <%= form.text_field :signature_label %></p>
+  <%= form.submit 'Create Wine' %>
+<% end %>

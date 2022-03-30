@@ -1,6 +1,6 @@
 require 'rails_helper'
 
- RSpec.describe 'Winemaker creation' do
+ RSpec.describe 'Winemaker Creation' do
   describe 'User Story 11, Winemaker Creation', type: :feature do
 
     it "Winemaker Index page links to a form that creates a new Winemaker record" do

@@ -1,11 +1,12 @@
+<br>
 <%= form_with url: '/winemakers', method: :post, local: true do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :region %>
-  <%= form.text_field :region %>
-  <%= form.label :public_tasting, 'Public Tasting' %>
-  <%= form.text_field :public_tasting %>
-  <%= form.label :vineyard_acreage, 'Vineyard Acreage' %>
-  <%= form.text_field :vineyard_acreage %>
+  <p><%= form.label :name, 'Name:' %>
+     <%= form.text_field :name %></p>
+  <p><%= form.label :region, 'Region:' %>
+     <%= form.text_field :region %></p>
+  <p><%= form.label :public_tasting, 'Public Tasting:' %>
+     <%= form.text_field :public_tasting %></p>
+  <p><%= form.label :vineyard_acreage, 'Vineyard Acreage:' %>
+     <%= form.text_field :vineyard_acreage %></p>
   <%= form.submit 'Create Winemaker' %>
 <% end %>

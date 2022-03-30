@@ -43,11 +43,10 @@ require 'rails_helper'
        wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
        wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
 
-       visit "/winemakers/#{winemaker1.id}/wines"
+       visit "/winemakers/#{winemaker1.id}"
+       click_button("Update #{winemaker1.name}")
 
-       click_on "All Winemakers"
-
-       expect(current_path).to eq("/winemakers")
+       expect(current_path).to eq("/winemakers/#{winemaker1.id}/edit")
      end
    end
  end

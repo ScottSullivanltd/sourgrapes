@@ -1,3 +1,4 @@
+<br>
 <h1><%= @winemaker.name %> Wines</h1>
 <% @wines.each do |wine| %>
   <h3><%= wine.name %></h3>
@@ -6,3 +7,6 @@
   <p>Barrels Produced: <%= wine.barrels_produced %></p>
   <p>Signature Label: <%= wine.signature_label %></p>
 <% end %>
+<br>
+
+<%= link_to "Create Wine", "/winemakers/#{@winemaker.id}/wines/new" %>

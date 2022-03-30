@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get '/wines', to: 'wines#index'
   get '/wines/:id', to: 'wines#show'
 
+  get '/winemakers/:winemaker_id/wines/new', to: 'winemaker_wines#new'
   get '/winemakers/:winemaker_id/wines', to: 'winemaker_wines#index'
+  post '/winemakers/:winemaker_id/wines', to: 'winemaker_wines#create'
 
   get '/winemakers', to: 'winemakers#index'
   get '/winemakers/new', to: 'winemakers#new'
