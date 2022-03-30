@@ -8,6 +8,10 @@ class Wine < ApplicationRecord
   validates :signature_label, inclusion: [true, false]
 
   def self.is_true
-    Wine.where(signature_label: true)
+    where(signature_label: true)
+  end
+
+  def self.sort_alphabetically
+    order(:name)
   end
 end

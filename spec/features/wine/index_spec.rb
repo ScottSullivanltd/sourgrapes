@@ -60,7 +60,7 @@ require 'rails_helper'
        wine4 = winemaker1.wines.create!(name: "Chambrala", blend: "Chardonnay", vintage: "2018", barrels_produced: 99, signature_label: true)
 
        visit "/wines"
-save_and_open_page
+
        expected = [wine2, wine4]
 
        expect(Wine.is_true).to eq(expected)

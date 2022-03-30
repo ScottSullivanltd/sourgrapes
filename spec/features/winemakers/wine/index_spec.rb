@@ -49,4 +49,27 @@ require 'rails_helper'
        expect(current_path).to eq("/winemakers/#{winemaker1.id}/edit")
      end
    end
+
+   describe 'User Story 16, Winemaker Wines in Alphabetical Order by name', type: :feature do
+     it "has link that returns to Winemaker Wine Index page with wines in alphabetical order" do
+       winemaker1 = Winemaker.create!(name: "Mondovete", region: "Napa Valley", public_tasting: false, vineyard_acreage: 85)
+       wine1 = winemaker1.wines.create!(name: "Red Vine", blend: "Cabernet", vintage: "2002", barrels_produced: 25, signature_label: false)
+       wine2 = winemaker1.wines.create!(name: "Valencia", blend: "Merlot", vintage: "2004", barrels_produced: 42, signature_label: true)
+       wine3 = winemaker1.wines.create!(name: "Pinotrest", blend: "Pinot Noir", vintage: "2010", barrels_produced: 104, signature_label: false)
+       wine4 = winemaker1.wines.create!(name: "Chambrala", blend: "Chardonnay", vintage: "2018", barrels_produced: 99, signature_label: true)
+
+       visit "/winemakers/#{winemaker1.id}/wines"
+
+       expect(page.text.index("Red Vine")).to be < page.text.index("Valencia")
+       expect(page.text.index("Valencia")).to be < page.text.index("Pinotrest")
+       expect(page.text.index("Pinotrest")).to be < page.text.index("Chambrala")
+
+       click_link("Sort Wine Alphabetically")
+
+       expect(page).to have_current_path("/winemakers/#{winemaker1.id}/wines?sort=asc")
+       expect(page.text.index("Chambrala")).to be < page.text.index("Pinotrest")
+       expect(page.text.index("Pinotrest")).to be < page.text.index("Red Vine")
+       expect(page.text.index("Red Vine")).to be < page.text.index("Valencia")
+     end
+   end
  end

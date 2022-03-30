@@ -1,14 +1,24 @@
 <br>
 <h1><%= @winemaker.name %> Wines</h1>
-<% @wines.each do |wine| %>
-  <h3><%= wine.name %></h3>
-  <p>Blend: <%= wine.blend %></p>
-  <p>Vintage: <%= wine.vintage %></p>
-  <p>Barrels Produced: <%= wine.barrels_produced %></p>
-  <p>Signature Label: <%= wine.signature_label %></p>
-<% end %>
-<br>
-
-<p><%= link_to "Sort Wine Alphabetically", "/winemakers/#{@winemaker.id}/wines" %></p>
-
+<table>
+  <tr>
+    <th>Wine Name</th>
+    <th>Blend</th>
+    <th>Vintage</th>
+    <th>Barrels Produced</th>
+    <th>Signature Label</th>
+  </tr>
+  <% @wines.each_with_index do |wine, index| %>
+    <div id="winemaker-wines-<%= index %>">
+      <tr>
+        <td><%= wine.name %></td>
+        <td><%= wine.blend %></td>
+        <td><%= wine.vintage %></td>
+        <td><%= wine.barrels_produced %></td>
+        <td><%= wine.signature_label %></td>
+      </tr>
+    </div>
+  <% end %>
+</table>
+<p><%= link_to "Sort Wine Alphabetically", "/winemakers/#{@winemaker.id}/wines?sort=asc" %></p>
 <%= link_to "Create Wine", "/winemakers/#{@winemaker.id}/wines/new" %>

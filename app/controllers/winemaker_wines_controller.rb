@@ -2,7 +2,11 @@ class WinemakerWinesController < ApplicationController
   before_action :find_winemaker  #, only: [:create, :update]  #do this if you want to limit the before_action
 
   def index
-    @wines = @winemaker.wines
+    if params[:sort] == 'asc'
+      @wines = @winemaker.wines.sort_alphabetically
+    else
+      @wines = @winemaker.wines
+    end
   end
 
   def new
