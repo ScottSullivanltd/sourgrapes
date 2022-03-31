@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/winemakers/:id/edit', to: 'winemakers#edit'
   post '/winemakers', to: 'winemakers#create'
   patch '/winemakers/:id', to: 'winemakers#update'
+  delete '/winemakers/:id', to: 'winemakers#destroy'
 
 end

@@ -1,5 +1,5 @@
 class WinemakersController < ApplicationController
-  before_action :find_winemaker, only: [:show, :edit, :update]
+  before_action :find_winemaker, only: [:show, :edit, :update, :destroy]
 
   def index
     @winemakers = Winemaker.all
@@ -22,6 +22,11 @@ class WinemakersController < ApplicationController
   def update
     @winemaker.update(winemaker_params)
     redirect_to "/winemakers/#{@winemaker.id}"
+  end
+
+  def destroy
+    @winemaker.destroy
+    redirect_to '/winemakers'
   end
 
   private
