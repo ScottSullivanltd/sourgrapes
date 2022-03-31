@@ -20,5 +20,18 @@
     </div>
   <% end %>
 </table>
+
+<%= form_with url: "/winemakers/#{@winemaker.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name, 'Name:' %>
+     <%= form.text_field :name %></p>
+  <p><%= form.label :region, 'Region:' %>
+     <%= form.text_field :region %></p>
+  <p><%= form.label :vineyard_acreage, 'Vineyard Acreage:' %>
+     <%= form.text_field :vineyard_acreage %></p>
+  <p><%= form.label :public_tasting, 'Public Tasting:' %>
+     <%= form.text_field :public_tasting %></p>
+  <%= form.submit 'Update Winemaker' %>
+<% end %>
+
 <p><%= link_to "Sort Wine Alphabetically", "/winemakers/#{@winemaker.id}/wines?sort=asc" %></p>
 <%= link_to "Create Wine", "/winemakers/#{@winemaker.id}/wines/new" %>

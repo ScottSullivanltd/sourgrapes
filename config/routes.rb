@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/wines/:id', to: 'wines#show'
   get '/wines/:id/edit', to: 'wines#edit'
   patch '/wines/:id', to: 'wines#update'
+  delete '/wines/:id', to: 'wines#destroy'
 
   get '/winemakers/:winemaker_id/wines', to: 'winemaker_wines#index'
   get '/winemakers/:winemaker_id/wines/new', to: 'winemaker_wines#new'
@@ -15,5 +16,6 @@ Rails.application.routes.draw do
   get '/winemakers/:id/edit', to: 'winemakers#edit'
   post '/winemakers', to: 'winemakers#create'
   patch '/winemakers/:id', to: 'winemakers#update'
+  delete '/winemakers/:id', to: 'winemakers#destroy'
 
 end

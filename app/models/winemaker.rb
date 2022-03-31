@@ -1,5 +1,5 @@
 class Winemaker < ApplicationRecord
-  has_many :wines
+  has_many :wines, dependent: :delete_all
 
   validates_presence_of :name
   validates_presence_of :region
