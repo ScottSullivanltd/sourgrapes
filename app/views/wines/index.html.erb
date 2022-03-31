@@ -7,7 +7,8 @@
     <th>Vintage</th>
     <th>Barrels Produced</th>
     <th>Signature Label</th>
-    <th>Update Winemaker</th>
+    <th>Update Wine</th>
+    <th>Delete Wine</th>
   </tr>
   <% @wines.each do |wine| %>
     <div id="wine-<%= wine.id %>">
@@ -18,6 +19,7 @@
         <td><strong><%= wine.barrels_produced %></strong></td>
         <td><strong><%= wine.signature_label %></strong></td>
         <td><strong><%= link_to "Update Wine", "/wines/#{wine.id}/edit" %></strong></td>
+        <td><strong><%= link_to "Delete Wine", "/wines/#{wine.id}", method: :delete %></strong></td>
       </tr>
     </div>
   <% end %>
