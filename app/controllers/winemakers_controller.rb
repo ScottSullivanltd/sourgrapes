@@ -20,8 +20,8 @@ class WinemakersController < ApplicationController
   end
 
   def update
-    winemaker.update(winemaker_params)
-    redirect_to "/winemakers/#{winemaker.id}"
+    @winemaker.update(winemaker_params)
+    redirect_to "/winemakers/#{@winemaker.id}"
   end
 
   private
